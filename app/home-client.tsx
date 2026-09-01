@@ -1,110 +1,508 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Compass, Quote, ArrowRight } from "lucide-react";
+/**
+ * BEACON - Ana sayfa: gece denizinden fenere yolculuk.
+ * Pinned 3D sahne: sisli deniz, donen fener isigi, yaklaistikca acilan sis,
+ * finalde ufukta gun dogumu. Ardindan: pusula ritueli, fenerin uc vaadi,
+ * hizmet ozeti, alinti ve kapanis.
+ */
+
+import Link from "next/link";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { LazyBeaconScene } from "@/components/three/lazy-beacon-scene";
+import { BeaconHeader } from "@/components/beacon-header";
+import {
+  BEACON,
+  BeaconCard,
+  BeamDivider,
+  useBeaconReveal,
+} from "@/components/beacon-shared";
 import type { SiteContent } from "@/lib/content";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-};
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-const stagger = { animate: { transition: { staggerChildren: 0.12 } } };
+const journeyPhases = [
+  {
+    title: "Deniz bazen",
+    accent: "kararir",
+    body: "Depresyon boyledir: kiyi kaybolur, yonler birbirine karisir. Bu sizin sucunuz degildir.",
+  },
+  {
+    title: "Fener denizi aydinlatmaz,",
+    accent: "yon verir",
+    body: "Terapi butun karanligi silmez; tutunacak sabit bir nokta ve bir rota verir.",
+  },
+  {
+    title: "Isik duzenli yanar -",
+    accent: "siz yoruldugunuzda bile",
+    body: "Haftalik seanslar fenerin cakisi gibidir: firtinada da, durgun denizde de ayni ritimde.",
+  },
+  {
+    title: "Kiyi dusundugunuzden",
+    accent: "yakin",
+    body: "Sis dagilmaya basladiginda cogu insan kiyiya sandigindan daha yakin oldugunu gorur.",
+  },
+  {
+    title: "Isigi acik",
+    accent: "tutuyoruz",
+    body: "",
+  },
+] as const;
 
-export function HomeClient({ content: c }: { content: SiteContent }) {
+const PHASE_THRESHOLDS = [0.2, 0.45, 0.65, 0.87];
+
+function phaseFor(p: number) {
+  for (let i = 0; i < PHASE_THRESHOLDS.length; i++) {
+    if (p < PHASE_THRESHOLDS[i]) return i;
+  }
+  return journeyPhases.length - 1;
+}
+
+/* -- Pusula ritueli -------------------------------------------------------- */
+function CompassRitual() {
+  const [word, setWord] = useState("");
+  const [lit, setLit] = useState(false);
+  const sweepRef = useRef<HTMLDivElement>(null);
+  const wordRef = useRef<HTMLParagraphElement>(null);
+
+  const light = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!word.trim() || lit) return;
+    setLit(true);
+    requestAnimationFrame(() => {
+      if (sweepRef.current) {
+        gsap.fromTo(sweepRef.current, { x: "-120%" }, { x: "120%", duration: 1.6, ease: "power2.inOut" });
+      }
+      if (wordRef.current) {
+        gsap.fromTo(
+          wordRef.current,
+          { opacity: 0.15, textShadow: "0 0 0px rgba(255,217,138,0)" },
+          { opacity: 1, textShadow: "0 0 26px rgba(255,217,138,0.8)", duration: 1.4, delay: 0.5, ease: "power2.out" },
+        );
+      }
+    });
+  };
+
   return (
-    <div className="font-sans selection:bg-primary/20 bg-bg text-fg">
-      {/* Hero - centered, beacon-like glow */}
-      <section className="relative overflow-hidden py-24 md:py-36">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/8 via-bg to-bg" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -z-10 h-[400px] w-[400px] rounded-full bg-primary/6 blur-[150px]" />
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto max-w-3xl text-center space-y-8"
+    <section className="relative z-[1] py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <p data-reveal className="text-[11px] tracking-[0.3em]" style={{ color: BEACON.glass }}>
+            KUCUK BIR RITUEL
+          </p>
+          <h2 data-reveal className="mt-4 text-4xl sm:text-5xl">
+            Pusulainiz hangi{" "}
+            <span className="italic" style={{ color: BEACON.beam }}>yonu</span>{" "}
+            gosteriyor?
+          </h2>
+          <p data-reveal className="mx-auto mt-4 max-w-md text-sm leading-relaxed" style={{ color: BEACON.muted }}>
+            Sizin icin yon gosteren bir degeri yazin - aile, durustluk, uretmek,
+            sefkat... Fener isigi onu karanlikta bulsun.
+          </p>
+          <BeaconCard
+            data-reveal
+            className="relative mt-10 overflow-hidden p-8 sm:p-12"
+            style={{ boxShadow: `0 24px 60px rgba(0,0,0,0.4)` }}
           >
-            <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-primary/80">
-              <Compass className="h-3.5 w-3.5" /> {c.home.badge}
-            </div>
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-light tracking-tight text-fg leading-[1.1]">
-              {c.home.headline}<br />
-              <span className="italic text-primary">{c.home.headlineAccent}</span> {c.home.headlineSuffix}
-            </h1>
-            <p className="mx-auto max-w-lg text-base leading-relaxed text-fg-muted">
-              {c.home.description}
+            <div
+              ref={sweepRef}
+              className="pointer-events-none absolute inset-y-0 w-1/2"
+              style={{
+                left: "25%",
+                transform: "translateX(-120%)",
+                background: `linear-gradient(90deg, transparent, ${BEACON.beam}22, transparent)`,
+              }}
+              aria-hidden="true"
+            />
+            <p
+              ref={wordRef}
+              className="min-h-[3rem] text-4xl italic tracking-wide"
+              style={{
+                fontFamily: "var(--font-beacon), serif",
+                color: BEACON.beam,
+                opacity: lit ? undefined : 0.15,
+              }}
+            >
+              {word || "..."}
             </p>
-            <div className="pt-4">
-              <a href="/iletisim" className="inline-flex items-center justify-center gap-2 rounded-[10px] bg-primary px-10 py-3.5 text-sm font-medium text-primary-fg shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary-hover hover:shadow-xl hover:shadow-primary/30">
-                {c.home.cta} <ArrowRight className="h-4 w-4" />
-              </a>
+
+            {!lit ? (
+              <form onSubmit={light} className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <label htmlFor="bc-ritual" className="sr-only">Yon gosteren degeriniz</label>
+                <input
+                  id="bc-ritual"
+                  value={word}
+                  onChange={(e) => setWord(e.target.value)}
+                  maxLength={24}
+                  placeholder="tek kelime yeter..."
+                  className="w-full max-w-xs rounded-lg px-4 py-3 text-center text-sm outline-none transition-shadow focus:shadow-[0_0_0_2px_rgba(255,217,138,0.3)]"
+                  style={{
+                    background: BEACON.night,
+                    border: `1px solid ${BEACON.beam}26`,
+                    color: BEACON.text,
+                  }}
+                />
+                <button
+                  type="submit"
+                  className="whitespace-nowrap rounded-full px-6 py-3 text-xs font-bold tracking-[0.2em] transition-transform hover:scale-[1.02]"
+                  style={{ background: BEACON.beam, color: BEACON.night }}
+                >
+                  ISIKLA BUL
+                </button>
+              </form>
+            ) : (
+              <div className="mt-8">
+                <p className="text-sm leading-relaxed" style={{ color: BEACON.muted }}>
+                  Deniz hala karanlik olabilir - ama artik bir yonunuz var.
+                  Terapide bu pusulaiyi birlikte kalibre ederiz.
+                </p>
+                <Link
+                  href="/iletisim"
+                  className="mt-5 inline-block text-xs tracking-[0.2em] underline decoration-2 underline-offset-4"
+                  style={{ color: BEACON.beam, textDecorationColor: `${BEACON.glass}88` }}
+                >
+                  ILK GORUSMEYI PLANLAYIN
+                </Link>
+              </div>
+            )}
+            <p className="relative mt-6 text-[11px]" style={{ color: `${BEACON.muted}cc` }}>
+              Yazdiklariniz hicbir yere gonderilmez, kaydedilmez.
+            </p>
+          </BeaconCard>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -- Main Component -------------------------------------------------------- */
+export function HomeClient({ content: c }: { content: SiteContent }) {
+  const scopeRef = useBeaconReveal();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef(0);
+  const [phaseIdx, setPhaseIdx] = useState(0);
+  const phaseIdxRef = useRef(0);
+
+  const handleUpdate = useCallback((self: ScrollTrigger) => {
+    progressRef.current = self.progress;
+    const next = phaseFor(self.progress);
+    if (next !== phaseIdxRef.current) {
+      phaseIdxRef.current = next;
+      setPhaseIdx(next);
+    }
+  }, []);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const pin = pinRef.current;
+    if (!wrapper || !pin) return;
+
+    const st = ScrollTrigger.create({
+      trigger: wrapper,
+      start: "top top",
+      end: "bottom bottom",
+      pin,
+      scrub: true,
+      onUpdate: handleUpdate,
+    });
+    return () => st.kill();
+  }, [handleUpdate]);
+
+  return (
+    <div
+      ref={scopeRef}
+      className="beacon-root min-h-screen font-sans"
+      style={{
+        colorScheme: "dark",
+        color: BEACON.text,
+        background:
+          `radial-gradient(1100px 540px at 78% -5%, ${BEACON.beam}10, transparent 55%), ` +
+          `radial-gradient(900px 520px at 8% 105%, ${BEACON.glass}0d, transparent 55%), ` +
+          `linear-gradient(to bottom, ${BEACON.night}, ${BEACON.deep})`,
+      }}
+    >
+      <style>{`
+        .beacon-root :is(h1,h2,h3){font-family:var(--font-beacon),var(--font-display),serif;font-weight:600;letter-spacing:-0.01em}
+        .beacon-root ::selection{background:${BEACON.beam}45}
+        .beacon-root{position:relative}
+        .beacon-starfield{position:fixed;inset:0;pointer-events:none;z-index:0;
+          background-image:
+            radial-gradient(1px 1px at 12% 8%,rgba(255,255,255,0.14),transparent),
+            radial-gradient(1px 1px at 47% 3%,rgba(255,255,255,0.10),transparent),
+            radial-gradient(1px 1px at 83% 11%,rgba(255,255,255,0.12),transparent),
+            radial-gradient(1px 1px at 7% 22%,rgba(255,255,255,0.08),transparent),
+            radial-gradient(1px 1px at 62% 17%,rgba(255,255,255,0.11),transparent),
+            radial-gradient(1px 1px at 93% 28%,rgba(255,255,255,0.09),transparent),
+            radial-gradient(1px 1px at 28% 33%,rgba(255,255,255,0.13),transparent),
+            radial-gradient(2px 2px at 18% 14%,rgba(255,255,255,0.08),transparent),
+            radial-gradient(2px 2px at 76% 21%,rgba(255,255,255,0.09),transparent),
+            radial-gradient(1px 1px at 33% 52%,rgba(255,255,255,0.10),transparent),
+            radial-gradient(1px 1px at 66% 48%,rgba(255,255,255,0.09),transparent),
+            radial-gradient(1px 1px at 15% 57%,rgba(255,255,255,0.12),transparent),
+            radial-gradient(1px 1px at 81% 53%,rgba(255,255,255,0.08),transparent),
+            radial-gradient(1px 1px at 44% 61%,rgba(255,255,255,0.11),transparent),
+            radial-gradient(2px 2px at 22% 66%,rgba(255,255,255,0.07),transparent),
+            radial-gradient(1px 1px at 58% 72%,rgba(255,255,255,0.10),transparent);
+          background-size:100% 100%;
+        }
+      `}</style>
+      <div className="beacon-starfield" aria-hidden="true" />
+      <BeaconHeader siteName={c.site.name} />
+
+      {/* Pinned fener yolculugu */}
+      <section ref={wrapperRef} className="relative" style={{ height: "420vh" }} aria-label="Fener yolculugu">
+        <div ref={pinRef} className="relative h-screen w-full overflow-hidden">
+          <LazyBeaconScene progressRef={progressRef} />
+
+          {/* Marka cipi */}
+          <div className="pointer-events-none absolute left-6 top-20 z-10 lg:left-10">
+            <p
+              className="rounded-full border px-4 py-2 text-[11px] tracking-[0.24em]"
+              style={{
+                background: `${BEACON.panel}bb`,
+                borderColor: `${BEACON.beam}22`,
+                color: BEACON.muted,
+                backdropFilter: "blur(6px)",
+              }}
+            >
+              {c.site.name.toUpperCase()} - {c.home.cardTitle?.toUpperCase() || "UMUT VE YON"}
+            </p>
+          </div>
+
+          {/* Faz metinleri */}
+          {journeyPhases.map((ph, i) => (
+            <div
+              key={i}
+              className={`absolute inset-x-0 bottom-16 z-10 transition-[transform,opacity] duration-300 sm:bottom-20 ${
+                phaseIdx === i ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-5 opacity-0"
+              }`}
+              aria-hidden={phaseIdx !== i}
+            >
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div
+                  className="max-w-xl rounded-xl border p-7 sm:p-9"
+                  style={{
+                    background: `${BEACON.night}b8`,
+                    borderColor: `${BEACON.beam}1f`,
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <h2 className="text-3xl font-light leading-[1.08] sm:text-5xl md:text-6xl">
+                    {ph.title}{" "}
+                    <span
+                      className="font-semibold italic"
+                      style={{
+                        color: BEACON.beam,
+                        textShadow: `0 0 40px rgba(255,217,138,0.3)`,
+                      }}
+                    >
+                      {ph.accent}
+                    </span>
+                  </h2>
+                  {ph.body && (
+                    <p className="mt-4 max-w-md text-sm leading-relaxed sm:text-base" style={{ color: BEACON.muted }}>
+                      {ph.body}
+                    </p>
+                  )}
+                  {i === journeyPhases.length - 1 && (
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <Link
+                        href="/iletisim"
+                        className="rounded-full px-6 py-3 text-xs font-bold tracking-[0.2em] transition-transform hover:scale-[1.02]"
+                        style={{ background: BEACON.beam, color: BEACON.night }}
+                      >
+                        RANDEVU AL
+                      </Link>
+                      <Link
+                        href="/yaklasim"
+                        className="rounded-full border px-6 py-3 text-xs tracking-[0.2em] transition-colors"
+                        style={{ borderColor: `${BEACON.beam}55`, color: BEACON.beam }}
+                      >
+                        ROTAYI TANIYIN
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-          </motion.div>
+          ))}
+
+          {/* Faz gostergesi */}
+          <div className="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-3 lg:right-14 lg:flex">
+            {journeyPhases.map((_, i) => (
+              <span
+                key={i}
+                className="block rounded-full transition-[width,height,background-color,box-shadow] duration-300"
+                style={{
+                  width: phaseIdx === i ? 10 : 6,
+                  height: phaseIdx === i ? 10 : 6,
+                  background: phaseIdx === i ? BEACON.beam : `${BEACON.text}30`,
+                  boxShadow: phaseIdx === i ? `0 0 14px ${BEACON.beam}` : "none",
+                }}
+                aria-hidden="true"
+              />
+            ))}
+          </div>
+
+          {/* Kaydir ipucu */}
+          <div
+            className={`absolute bottom-5 left-1/2 z-10 -translate-x-1/2 transition-opacity duration-300 ${
+              phaseIdx === 0 ? "opacity-70" : "opacity-0"
+            }`}
+          >
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-[10px] tracking-[0.24em]" style={{ color: BEACON.beam }}>KAYDIR</span>
+              <span
+                className="h-6 w-px animate-pulse"
+                style={{ background: `linear-gradient(to bottom, ${BEACON.beam}, transparent)` }}
+                aria-hidden="true"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="py-24 border-y border-border/30">
+      {/* Pusula ritueli */}
+      <CompassRitual />
+
+      {/* Fenerin uc vaadi */}
+      <section className="relative z-[1] py-24" style={{ background: `${BEACON.panel}66` }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="mx-auto max-w-2xl text-center space-y-8">
-            <Quote className="h-8 w-8 text-primary/20 mx-auto" />
-            <p className="font-display text-2xl md:text-3xl italic leading-relaxed text-fg/80 font-light">
+          <div className="mx-auto max-w-2xl text-center">
+            <p data-reveal className="text-[11px] tracking-[0.3em]" style={{ color: BEACON.glass }}>FELSEFE</p>
+            <h2 data-reveal className="mt-4 text-4xl sm:text-5xl">
+              Fenerin uc{" "}
+              <span className="italic" style={{ color: BEACON.beam }}>vaadi</span>
+            </h2>
+          </div>
+          <div className="mx-auto mt-16 grid max-w-4xl gap-10 sm:grid-cols-3">
+            {[
+              { t: "Yerinde durur", d: "Siz uzaklassaniz da, geciktirseniz de fener yer degistirmez. Terapotik iliski sabittir." },
+              { t: "Duzenli yanar", d: "Motivasyonunuz olmadigi hafta da seans oradadir. Ritim, iyilesmenin kendisidir." },
+              { t: "Yolu dayatmaz", d: "Fener rotanizi cizmez; kayaliklari gosterir. Dumen her zaman sizde kalir." },
+            ].map((p, i) => (
+              <div key={p.t} data-reveal className="text-center">
+                <span
+                  className="mx-auto block h-3 w-3 rounded-full"
+                  style={{
+                    background: BEACON.beam,
+                    boxShadow: `0 0 16px ${BEACON.beam}`,
+                    animationDelay: `${i * 0.8}s`,
+                  }}
+                  aria-hidden="true"
+                />
+                <h3 className="mt-4 text-2xl">{p.t}</h3>
+                <div className="mt-3"><BeamDivider w={90} /></div>
+                <p className="mt-3 text-sm leading-relaxed" style={{ color: BEACON.muted }}>{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hizmet ozeti */}
+      <section className="relative z-[1] py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <p data-reveal className="text-center text-[11px] tracking-[0.3em]" style={{ color: BEACON.glass }}>
+              CALISMA ALANLARI
+            </p>
+            <h2 data-reveal className="mt-4 text-center text-4xl sm:text-5xl">
+              Isik nerelere{" "}
+              <span className="italic" style={{ color: BEACON.beam }}>duser</span>
+            </h2>
+            <div className="mt-12">
+              {c.services.map((s) => (
+                <Link
+                  key={s.title}
+                  href="/hizmetler"
+                  data-reveal
+                  className="group flex items-baseline justify-between gap-4 border-b py-6 transition-colors"
+                  style={{ borderColor: `${BEACON.text}14` }}
+                >
+                  <span
+                    className="text-2xl transition-colors group-hover:text-[#ffd98a] sm:text-3xl"
+                    style={{ fontFamily: "var(--font-beacon), serif" }}
+                  >
+                    {s.title}
+                  </span>
+                  <span className="hidden text-sm sm:block" style={{ color: BEACON.muted }}>
+                    {s.desc.length > 50 ? s.desc.substring(0, 50) + "..." : s.desc}
+                  </span>
+                  <span className="text-lg transition-transform group-hover:translate-x-1" style={{ color: BEACON.beam }} aria-hidden="true">
+                    &rarr;
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Alinti */}
+      <section className="relative z-[1] py-24" style={{ background: `${BEACON.panel}66` }}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <blockquote data-reveal className="mx-auto max-w-2xl text-center">
+            <p className="text-3xl italic leading-snug sm:text-4xl" style={{ fontFamily: "var(--font-beacon), serif" }}>
               &ldquo;{c.home.quote}&rdquo;
             </p>
-            <p className="text-[10px] tracking-[0.4em] uppercase text-fg-muted">{c.home.quoteAuthor}</p>
-          </motion.div>
+            <footer className="mt-5 text-xs tracking-[0.3em]" style={{ color: BEACON.muted }}>
+              {c.home.quoteAuthor.toUpperCase()}
+            </footer>
+          </blockquote>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-24">
+      {/* Kapanis CTA */}
+      <section className="relative z-[1] py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-14">
-            <div className="text-center space-y-4">
-              <h2 className="font-display text-3xl md:text-4xl font-light text-fg tracking-tight">Calisma Alanlari</h2>
-              <p className="text-sm text-fg-muted">Seans bilgisi icin iletisime gecin.</p>
+          <BeaconCard
+            data-reveal
+            className="relative mx-auto max-w-2xl overflow-hidden p-10 text-center sm:p-14"
+            style={{ boxShadow: `0 24px 60px rgba(0,0,0,0.4)` }}
+          >
+            <div
+              className="pointer-events-none absolute left-1/2 top-0 h-40 w-[420px] -translate-x-1/2 -translate-y-1/2"
+              style={{ background: `radial-gradient(ellipse, ${BEACON.beam}22, transparent 65%)` }}
+              aria-hidden="true"
+            />
+            <h2 className="text-4xl sm:text-5xl">
+              Ilk gorusme, ilk{" "}
+              <span className="italic" style={{ color: BEACON.beam }}>cakis</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed" style={{ color: BEACON.muted }}>
+              {c.contact.intro}
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link
+                href="/iletisim"
+                className="rounded-full px-7 py-3.5 text-xs font-bold tracking-[0.2em] transition-transform hover:scale-[1.02]"
+                style={{ background: BEACON.beam, color: BEACON.night }}
+              >
+                RANDEVU AL
+              </Link>
+              <Link
+                href="/sss"
+                className="rounded-full border px-7 py-3.5 text-xs tracking-[0.2em] transition-colors"
+                style={{ borderColor: `${BEACON.beam}55`, color: BEACON.beam }}
+              >
+                SORULARINIZ MI VAR?
+              </Link>
             </div>
-            <motion.div variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true }} className="grid gap-5 sm:grid-cols-2 max-w-3xl mx-auto">
-              {c.services.map((s, i) => (
-                <motion.div key={i} variants={fadeUp}
-                  className="group rounded-[10px] border border-border/40 bg-bg-secondary/30 p-7 hover:border-primary/30 hover:bg-bg-secondary/60 transition-all duration-300 space-y-3"
-                >
-                  <h3 className="font-display text-xl font-light text-fg group-hover:text-primary transition-colors">{s.title}</h3>
-                  <p className="text-sm text-fg-muted leading-relaxed">{s.desc}</p>
-                  <div className="flex items-center gap-3 text-xs text-fg-muted/60">
-                    <span>{s.duration}</span><span className="text-primary/20">|</span><span>{s.method}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          </BeaconCard>
         </div>
       </section>
 
-      {/* Articles */}
-      <section className="py-24 bg-bg-secondary/30">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-14">
-            <h2 className="font-display text-3xl font-light text-center text-fg tracking-tight">Yazilar</h2>
-            <div className="mx-auto max-w-2xl divide-y divide-border/25">
-              {c.articles.map((a, i) => (
-                <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group py-6 flex items-start justify-between gap-4 cursor-pointer"
-                >
-                  <div className="space-y-1">
-                    <span className="text-[10px] tracking-[0.2em] uppercase text-primary/70">{a.category}</span>
-                    <h3 className="font-display text-lg text-fg group-hover:text-primary transition-colors font-light">{a.title}</h3>
-                  </div>
-                  <span className="text-[11px] text-fg-muted flex-shrink-0 mt-4">{a.readTime}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <footer className="relative z-[1] border-t py-10 text-center" style={{ borderColor: `${BEACON.text}12` }}>
+        <p className="text-xs tracking-[0.14em]" style={{ color: BEACON.muted }}>
+          {c.site.name.toUpperCase()} - fener denizi aydinlatmaz, yon verir
+        </p>
+      </footer>
     </div>
   );
 }
