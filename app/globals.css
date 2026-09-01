@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: oklch(0.88 0.09 85);
+  --color-primary-hover: oklch(0.83 0.1 85);
+  --color-primary-fg: oklch(0.18 0.03 260);
+  --color-accent: oklch(0.76 0.08 170);
+  --color-accent-hover: oklch(0.71 0.08 170);
+  --color-accent-fg: oklch(0.15 0.03 260);
+  --color-bg: oklch(0.17 0.035 258);
+  --color-bg-secondary: oklch(0.21 0.04 258);
+  --color-fg: oklch(0.94 0.01 250);
+  --color-fg-muted: oklch(0.68 0.025 250);
+  --color-border: oklch(0.3 0.04 258);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), "Fraunces", ui-serif, Georgia, serif;
+}
+
+::selection { background: oklch(0.88 0.09 85 / 0.25); }

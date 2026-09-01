@@ -1,0 +1,86 @@
+{
+  "site": {
+    "name": "Uzm. Psk. Deniz Ornek",
+    "title": "Uzman Klinik Psikolog",
+    "email": "ornek@psychofolio.com",
+    "address": "Istanbul, Turkiye",
+    "copyright": "Tum haklari saklidir."
+  },
+  "home": {
+    "badge": "BEACON",
+    "headline": "Karanlikta",
+    "headlineAccent": "bir isik",
+    "headlineSuffix": "her zaman yanar.",
+    "description": "Depresyon, varolussal sorgulamalar ve yasam gecislerinde sizinle birlikte yuruyorum. Yalniz degilsiniz.",
+    "cta": "Iletisime Gecin",
+    "cardTitle": "Umut ve Yon",
+    "cardSubtitle": "Varolussal Terapi",
+    "quote": "Insan, anlam arayisiyla tanimlanan bir varliktir.",
+    "quoteAuthor": "Viktor Frankl"
+  },
+  "services": [
+    {
+      "title": "Depresyon Terapisi",
+      "desc": "Hafif, orta ve siddetli depresyon icin bilissel davranisci ve varolussal yaklasimlari birlestiren butuncul terapi sureci.",
+      "duration": "50 dk",
+      "method": "Yuzyuze / Cevrimici"
+    },
+    {
+      "title": "Varolussal Terapi",
+      "desc": "Anlam arayisi, yalnizlik, ozgurluk ve sonluluk gibi varolussal temalar uzerine derinlemesine terapi calismasi.",
+      "duration": "50 dk",
+      "method": "Yuzyuze"
+    },
+    {
+      "title": "Yasam Gecisleri Danismanligi",
+      "desc": "Emeklilik, boslama, sehir degisikligi, kayip ve yeni baslangiclar gibi yasam donemeçlerinde destek.",
+      "duration": "50 dk",
+      "method": "Yuzyuze / Cevrimici"
+    },
+    {
+      "title": "Bireysel Psikoterapi",
+      "desc": "Kaygi, ozsaygi sorunlari ve iliskisel zorluklar icin kabul ve karlilik terapisi (ACT) cercevesinde bireysel calisma.",
+      "duration": "50 dk",
+      "method": "Yuzyuze / Cevrimici"
+    }
+  ],
+  "about": {
+    "title": "Hakkimda",
+    "intro": "Depresyon, varolussal sorgulamalar ve yasam gecisleri alaninda calisan bir klinik psikolog olarak, danisanlarimin anlam ve yon bulmalasiina eslik ediyorum.",
+    "credentials": [
+      { "year": "\u2014", "title": "Lisans Egitimi", "detail": "Psikoloji alaninda lisans derecesi" },
+      { "year": "\u2014", "title": "Yuksek Lisans", "detail": "Klinik psikoloji alaninda uzmanlik" },
+      { "year": "\u2014", "title": "Varolussal Terapi Egitimi", "detail": "Varolussal-insancil terapi ileri duzey egitim programi" }
+    ]
+  },
+  "approach": {
+    "title": "Terapi Yaklasimim",
+    "intro": "Terapide amacim, karanlik gibi hissedilen donemlerinizde size eslik etmek ve birlikte anlam bulmaktir. Her gece sabaha kavusur.",
+    "principles": [
+      { "title": "Varolussal Cerceve", "desc": "Insan varoluusunun temel temalarini - anlam, ozgurluk, yalnizlik ve sonluluk - terapi surecinin merkezine yerlestiriyorum." },
+      { "title": "Kabullenme ve Karlilik", "desc": "Aci ceken dusunce ve duygularla savasmaak yerine, onlari kabul ederek degerlerinize dogru adim atmanizi destekliyorum." },
+      { "title": "Iliskisel Sicaklik", "desc": "Terapotik iliski, sicak ve gercek bir insan baglantiisidir. Yargisiz, koşulsuz bir kabul alani sunuyorum." },
+      { "title": "Anlam Odakli Calisma", "desc": "Hayatinizda neyin gercekten onemli oldugunu kesfetmenize ve bu degerlere uygun yasamaniza yardimci oluyorum." }
+    ]
+  },
+  "articles": [
+    { "title": "Depresyon ve Anlam Arayisi: Viktor Frankl'dan Dersler", "category": "Depresyon", "readTime": "9 dk", "date": "Ornek tarih" },
+    { "title": "Varolussal Kaygi: Hayatin Buyuk Sorulariyla Yuuzlesmek", "category": "Varolussal", "readTime": "8 dk", "date": "Ornek tarih" },
+    { "title": "Yasam Gecisleri ve Psikolojik Uyum", "category": "Gecisler", "readTime": "7 dk", "date": "Ornek tarih" },
+    { "title": "Yalnizlik: Insan Varoluusunun Kacinilmaz Boyutu", "category": "Yalnizlik", "readTime": "10 dk", "date": "Ornek tarih" }
+  ],
+  "faq": [
+    { "q": "Depresyon tedavi edilebilir mi?", "a": "Depresyon, uygun terapi ve gerektiginde ilac destegi ile onemli olcude iyilestirilebilir. Profesyonel destek almak iyilesmenin ilk adimidir." },
+    { "q": "Varolussal terapi nedir?", "a": "Varolussal terapi, insan varoluusunun temel sorulariyla - anlam, ozgurluk, yalnizlik ve olum - yuzlesmeyi ve bunlarla saglikli bir iliski kurmayi hedefleyen terapi yaklasimidir." },
+    { "q": "Terapiye ne zaman baslamaliyim?", "a": "Gunluk yasaminizi etkileyen surekli bir mutsuzluk, motivasyon kaybi veya anlamsizlik hissi yasiyorsaniz, profesyonel destek almak icin uygun bir zamandadir." },
+    { "q": "Seans ucreti ne kadar?", "a": "Seans bilgisi icin iletisime gecin." }
+  ],
+  "contact": {
+    "title": "Iletisim",
+    "intro": "Karanlikta bir isik ariyorsaniz, birlikte yola cikabiliriz.",
+    "formName": "Adiniz",
+    "formEmail": "E-posta",
+    "formMessage": "Mesajiniz",
+    "formSubmit": "Gonder"
+  }
+}
