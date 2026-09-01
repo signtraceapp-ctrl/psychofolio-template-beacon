@@ -8,14 +8,14 @@ import {
 } from "@/components/beacon-shared";
 import type { SiteContent } from "@/lib/content";
 
-/* Fener karakterleri animasyonlari */
+/* Fener karakterleri animasyonları */
 const CHAR_ANIMS = [
-  { char: "Fl 6s", charDesc: "yavas ve derin", anim: "beaconFl0", dur: "6s" },
-  { char: "Iso 8s", charDesc: "esit aralikli", anim: "beaconFl1", dur: "8s" },
-  { char: "Fl(2) 6s", charDesc: "cift cakis", anim: "beaconFl2", dur: "6s" },
-  { char: "Q 3s", charDesc: "sik ritim", anim: "beaconFl3", dur: "3s" },
-  { char: "LFl 10s", charDesc: "uzun cakis", anim: "beaconFl4", dur: "10s" },
-  { char: "Al 5s", charDesc: "donusumlu", anim: "beaconFl5", dur: "5s" },
+  { char: "Fl 6s", charDesc: "yavaş ve derin", anim: "beaconFl0", dur: "6s" },
+  { char: "Iso 8s", charDesc: "eşit aralıklı", anim: "beaconFl1", dur: "8s" },
+  { char: "Fl(2) 6s", charDesc: "çift çakış", anim: "beaconFl2", dur: "6s" },
+  { char: "Q 3s", charDesc: "sık ritim", anim: "beaconFl3", dur: "3s" },
+  { char: "LFl 10s", charDesc: "uzun çakış", anim: "beaconFl4", dur: "10s" },
+  { char: "Al 5s", charDesc: "dönüşümlü", anim: "beaconFl5", dur: "5s" },
 ];
 
 export function ServicesClient({ content: c }: { content: SiteContent }) {
@@ -25,7 +25,7 @@ export function ServicesClient({ content: c }: { content: SiteContent }) {
     <BeaconShell
       kicker="Hizmetler"
       title="Her fenerin kendi"
-      accent="ritmi vardir"
+      accent="ritmi vardır"
       scopeRef={scopeRef}
       siteName={c.site.name}
     >
@@ -44,9 +44,9 @@ export function ServicesClient({ content: c }: { content: SiteContent }) {
             className="mx-auto mb-12 max-w-xl text-center text-sm leading-relaxed"
             style={{ color: BEACON.muted }}
           >
-            Denizcilikte her fener, karakteri denen kendine ozgu bir ritimle
-            yanar - gemiler onu bu ritimden tanir. Her calisma alaninin da
-            kendi ritmi vardir.
+            Denizcilikte her fener, karakteri denen kendine özgü bir ritimle
+            yanar - gemiler onu bu ritimden tanır. Her çalışma alanının da
+            kendi ritmi vardır.
           </p>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
             {c.services.map((s, i) => {

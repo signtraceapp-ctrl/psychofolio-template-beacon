@@ -256,7 +256,7 @@ export function BeaconShell({
         style={{ borderColor: `${BEACON.text}12` }}
       >
         <p className="text-xs tracking-[0.14em]" style={{ color: BEACON.muted }}>
-          {siteName?.toUpperCase() || "BEACON"} - fener denizi aydinlatmaz, yon verir
+          {siteName?.toUpperCase() || "BEACON"} &middot; fener denizi aydınlatmaz, yön verir
         </p>
       </footer>
     </div>

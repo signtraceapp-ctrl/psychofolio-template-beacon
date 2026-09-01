@@ -41,8 +41,8 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
 
   return (
     <BeaconShell
-      kicker="Iletisim"
-      title="Kiyiya haber"
+      kicker="İletişim"
+      title="Kıyıya haber"
       accent="verin"
       scopeRef={scopeRef}
       siteName={c.site.name}
@@ -90,7 +90,7 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
                   </div>
                   <div>
                     <label htmlFor="bc-note" className="mb-1.5 block text-[11px] tracking-[0.2em]" style={{ color: BEACON.glass }}>
-                      {c.contact.formMessage?.toUpperCase() || "MESAJINIZ"} (ISTEGE BAGLI)
+                      {c.contact.formMessage?.toUpperCase() || "MESAJINIZ"} (İSTEĞE BAĞLI)
                     </label>
                     <textarea
                       id="bc-note"
@@ -106,7 +106,7 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
                     className="w-full rounded-full py-3.5 text-sm font-bold tracking-[0.2em] transition-transform hover:scale-[1.01]"
                     style={{ background: BEACON.beam, color: BEACON.night }}
                   >
-                    ISIGI YAK
+                    IŞIĞI YAK
                   </button>
                 </form>
               ) : (
@@ -121,12 +121,12 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
                     aria-hidden="true"
                   />
                   <h3 className="mt-7 text-3xl">
-                    Isik yandi{name ? `, ${name.split(" ")[0]}` : ""}
+                    Işık yandı{name ? `, ${name.split(" ")[0]}` : ""}
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed" style={{ color: BEACON.muted }}>
-                    Mesajiniz kiyiya ulasti. En gec bir is gunu icinde{" "}
-                    {email ? <span style={{ color: BEACON.beam }}>{email}</span> : "e-postaniza"}{" "}
-                    adresinden donus yapilir.
+                    Mesajınız kıyıya ulaştı. En geç bir iş günü içinde{" "}
+                    {email ? <span style={{ color: BEACON.beam }}>{email}</span> : "e-postanıza"}{" "}
+                    adresinden dönüş yapılır.
                   </p>
                 </div>
               )}
@@ -135,7 +135,7 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
             {/* Bilgiler */}
             <div data-reveal className="space-y-8 lg:pt-4">
               {[
-                { k: "SEANS", v: "Hafta ici 10:00-19:00 - Cmt 10:00-14:00" },
+                { k: "SEANS", v: "Hafta içi 10:00-19:00 \u00B7 Cmt 10:00-14:00" },
                 { k: "KONUM", v: c.site.address },
                 { k: "E-POSTA", v: c.site.email },
               ].map((row) => (
@@ -147,9 +147,9 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
                 </div>
               ))}
               <p className="text-xs leading-relaxed" style={{ color: BEACON.muted }}>
-                Acil bir durumdaysaniz ya da kendinize zarar verme dusunceleriniz
-                su anda yogunsa lutfen 112&apos;yi arayin ya da en yakin acil servise
-                basvurun - bu form acil destek kanali degildir.
+                Acil bir durumdaysanız ya da kendinize zarar verme düşünceleriniz
+                şu anda yoğunsa lütfen 112&apos;yi arayın ya da en yakın acil servise
+                başvurun - bu form acil destek kanalı değildir.
               </p>
             </div>
           </div>

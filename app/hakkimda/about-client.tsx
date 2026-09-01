@@ -13,15 +13,15 @@ export function AboutClient({ content: c }: { content: SiteContent }) {
 
   return (
     <BeaconShell
-      kicker="Hakkinda"
+      kicker="Hakkında"
       title="Fenerin"
-      accent="bekcisi"
+      accent="bekçisi"
       scopeRef={scopeRef}
       siteName={c.site.name}
     >
       <section className="relative z-[1] pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Tanitim karti */}
+          {/* Tanıtım kartı */}
           <BeaconCard
             data-reveal
             className="mx-auto max-w-2xl p-10"

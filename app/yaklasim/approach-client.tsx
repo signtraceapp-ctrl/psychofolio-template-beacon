@@ -58,21 +58,12 @@ export function ApproachClient({ content: c }: { content: SiteContent }) {
 
   return (
     <BeaconShell
-      kicker="Yaklasim"
-      title="Rota dort seyirde"
-      accent="cizilir"
+      kicker="Yaklaşım"
+      title="Rota dört seyirde"
+      accent="çizilir"
       scopeRef={scopeRef}
       siteName={c.site.name}
     >
-      {/* Intro */}
-      <section className="relative z-[1] pb-12 text-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p data-reveal className="mx-auto max-w-xl text-base leading-relaxed" style={{ color: BEACON.muted }}>
-            {c.approach.intro}
-          </p>
-        </div>
-      </section>
-
       <section className="relative z-[1] py-32 sm:py-40">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-5xl gap-14 lg:grid-cols-2">
@@ -112,19 +103,19 @@ export function ApproachClient({ content: c }: { content: SiteContent }) {
                   ))}
                 </svg>
                 <p className="mt-6 text-center text-xs tracking-[0.2em]" style={{ color: BEACON.muted }}>
-                  KAYDIRDIKCA ROTA CIZILIR
+                  KAYDIRDIKÇA ROTA ÇİZİLİR
                 </p>
               </BeaconCard>
             </div>
 
-            {/* Sag: seyirler */}
+            {/* Sağ: seyirler */}
             <div ref={stepsRef} className="space-y-20 lg:py-10">
               {c.approach.principles.map((p, i) => (
                 <div key={i}>
                   {i > 0 && <div className="mb-10"><BeamDivider w={120} /></div>}
                   <div data-reveal>
                     <p className="text-[11px] tracking-[0.3em]" style={{ color: BEACON.glass }}>
-                      {`${String(i + 1).padStart(2, "0")} - SEYIR`}
+                      {`${String(i + 1).padStart(2, "0")} \u00B7 SEYİR`}
                     </p>
                     <h3 className="mt-2 text-3xl sm:text-4xl">{p.title}</h3>
                     <p className="mt-4 text-base leading-relaxed" style={{ color: BEACON.muted }}>

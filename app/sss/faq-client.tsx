@@ -15,8 +15,8 @@ export function FaqClient({ content: c }: { content: SiteContent }) {
   return (
     <BeaconShell
       kicker="SSS"
-      title="Isaret"
-      accent="sancaklari"
+      title="İşaret"
+      accent="sancakları"
       scopeRef={scopeRef}
       siteName={c.site.name}
     >

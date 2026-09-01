@@ -13,15 +13,15 @@ export function ArticlesClient({ content: c }: { content: SiteContent }) {
   const scopeRef = useBeaconReveal();
 
   /* Build category list from content */
-  const categories = ["Tumu", ...Array.from(new Set(c.articles.map((a) => a.category).filter(Boolean)))];
-  const [cat, setCat] = useState("Tumu");
-  const filtered = c.articles.filter((a) => cat === "Tumu" || a.category === cat);
+  const categories = ["Tümü", ...Array.from(new Set(c.articles.map((a) => a.category).filter(Boolean)))];
+  const [cat, setCat] = useState("Tümü");
+  const filtered = c.articles.filter((a) => cat === "Tümü" || a.category === cat);
 
   return (
     <BeaconShell
-      kicker="Yazilar"
+      kicker="Yazılar"
       title="Seyir"
-      accent="notlari"
+      accent="notları"
       scopeRef={scopeRef}
       siteName={c.site.name}
     >
@@ -48,7 +48,7 @@ export function ArticlesClient({ content: c }: { content: SiteContent }) {
             {filtered.map((a, i) => (
               <BeaconCard key={i} data-reveal className="group flex flex-col p-7">
                 <p className="text-[10px] tracking-[0.3em]" style={{ color: BEACON.glass }}>
-                  {a.category.toUpperCase()} - {a.readTime}
+                  {a.category.toUpperCase()} &middot; {a.readTime}
                 </p>
                 <h3 className="mt-3 text-xl leading-snug transition-colors duration-300 group-hover:text-[#ffd98a]">
                   {a.title}

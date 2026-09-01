@@ -2,9 +2,9 @@
 
 /**
  * BEACON - Ana sayfa: gece denizinden fenere yolculuk.
- * Pinned 3D sahne: sisli deniz, donen fener isigi, yaklaistikca acilan sis,
- * finalde ufukta gun dogumu. Ardindan: pusula ritueli, fenerin uc vaadi,
- * hizmet ozeti, alinti ve kapanis.
+ * Pinned 3D sahne: sisli deniz, dönen fener ışığı, yaklaştıkça açılan sis,
+ * finalde ufukta gün doğumu. Ardından: pusula ritüeli, fenerin üç vaadi,
+ * hizmet özeti, alıntı ve kapanış.
  */
 
 import Link from "next/link";
@@ -28,26 +28,26 @@ if (typeof window !== "undefined") {
 const journeyPhases = [
   {
     title: "Deniz bazen",
-    accent: "kararir",
-    body: "Depresyon boyledir: kiyi kaybolur, yonler birbirine karisir. Bu sizin sucunuz degildir.",
+    accent: "kararır",
+    body: "Depresyon böyledir: kıyı kaybolur, yönler birbirine karışır. Bu sizin suçunuz değildir.",
   },
   {
-    title: "Fener denizi aydinlatmaz,",
-    accent: "yon verir",
-    body: "Terapi butun karanligi silmez; tutunacak sabit bir nokta ve bir rota verir.",
+    title: "Fener denizi aydınlatmaz,",
+    accent: "yön verir",
+    body: "Terapi bütün karanlığı silmez; tutunacak sabit bir nokta ve bir rota verir.",
   },
   {
-    title: "Isik duzenli yanar -",
-    accent: "siz yoruldugunuzda bile",
-    body: "Haftalik seanslar fenerin cakisi gibidir: firtinada da, durgun denizde de ayni ritimde.",
+    title: "Işık düzenli yanar -",
+    accent: "siz yorulduğunuzda bile",
+    body: "Haftalık seanslar fenerin çakışı gibidir: fırtınada da, durgun denizde de aynı ritimde.",
   },
   {
-    title: "Kiyi dusundugunuzden",
-    accent: "yakin",
-    body: "Sis dagilmaya basladiginda cogu insan kiyiya sandigindan daha yakin oldugunu gorur.",
+    title: "Kıyı düşündüğünüzden",
+    accent: "yakın",
+    body: "Sis dağılmaya başladığında çoğu insan kıyıya sandığından daha yakın olduğunu görür.",
   },
   {
-    title: "Isigi acik",
+    title: "Işığı açık",
     accent: "tutuyoruz",
     body: "",
   },
@@ -62,7 +62,7 @@ function phaseFor(p: number) {
   return journeyPhases.length - 1;
 }
 
-/* -- Pusula ritueli -------------------------------------------------------- */
+/* -- Pusula ritüeli -------------------------------------------------------- */
 function CompassRitual() {
   const [word, setWord] = useState("");
   const [lit, setLit] = useState(false);
@@ -92,16 +92,16 @@ function CompassRitual() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p data-reveal className="text-[11px] tracking-[0.3em]" style={{ color: BEACON.glass }}>
-            KUCUK BIR RITUEL
+            KÜÇÜK BİR RİTÜEL
           </p>
           <h2 data-reveal className="mt-4 text-4xl sm:text-5xl">
-            Pusulainiz hangi{" "}
-            <span className="italic" style={{ color: BEACON.beam }}>yonu</span>{" "}
-            gosteriyor?
+            Pusulanız hangi{" "}
+            <span className="italic" style={{ color: BEACON.beam }}>yönü</span>{" "}
+            gösteriyor?
           </h2>
           <p data-reveal className="mx-auto mt-4 max-w-md text-sm leading-relaxed" style={{ color: BEACON.muted }}>
-            Sizin icin yon gosteren bir degeri yazin - aile, durustluk, uretmek,
-            sefkat... Fener isigi onu karanlikta bulsun.
+            Sizin için yön gösteren bir değeri yazın - aile, dürüstlük, üretmek,
+            şefkat... Fener ışığı onu karanlıkta bulsun.
           </p>
           <BeaconCard
             data-reveal
@@ -127,18 +127,18 @@ function CompassRitual() {
                 opacity: lit ? undefined : 0.15,
               }}
             >
-              {word || "..."}
+              {word || "\u2026"}
             </p>
 
             {!lit ? (
               <form onSubmit={light} className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <label htmlFor="bc-ritual" className="sr-only">Yon gosteren degeriniz</label>
+                <label htmlFor="bc-ritual" className="sr-only">Yön gösteren değeriniz</label>
                 <input
                   id="bc-ritual"
                   value={word}
                   onChange={(e) => setWord(e.target.value)}
                   maxLength={24}
-                  placeholder="tek kelime yeter..."
+                  placeholder="tek kelime yeter\u2026"
                   className="w-full max-w-xs rounded-lg px-4 py-3 text-center text-sm outline-none transition-shadow focus:shadow-[0_0_0_2px_rgba(255,217,138,0.3)]"
                   style={{
                     background: BEACON.night,
@@ -151,26 +151,26 @@ function CompassRitual() {
                   className="whitespace-nowrap rounded-full px-6 py-3 text-xs font-bold tracking-[0.2em] transition-transform hover:scale-[1.02]"
                   style={{ background: BEACON.beam, color: BEACON.night }}
                 >
-                  ISIKLA BUL
+                  IŞIKLA BUL
                 </button>
               </form>
             ) : (
               <div className="mt-8">
                 <p className="text-sm leading-relaxed" style={{ color: BEACON.muted }}>
-                  Deniz hala karanlik olabilir - ama artik bir yonunuz var.
-                  Terapide bu pusulaiyi birlikte kalibre ederiz.
+                  Deniz h&acirc;l&acirc; karanlık olabilir - ama artık bir yönünüz var.
+                  Terapide bu pusulayı birlikte kalibre ederiz.
                 </p>
                 <Link
                   href="/iletisim"
                   className="mt-5 inline-block text-xs tracking-[0.2em] underline decoration-2 underline-offset-4"
                   style={{ color: BEACON.beam, textDecorationColor: `${BEACON.glass}88` }}
                 >
-                  ILK GORUSMEYI PLANLAYIN
+                  İLK GÖRÜŞMEYİ PLANLAYIN
                 </Link>
               </div>
             )}
             <p className="relative mt-6 text-[11px]" style={{ color: `${BEACON.muted}cc` }}>
-              Yazdiklariniz hicbir yere gonderilmez, kaydedilmez.
+              Yazdıklarınız hiçbir yere gönderilmez, kaydedilmez.
             </p>
           </BeaconCard>
         </div>
@@ -254,12 +254,12 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
       <div className="beacon-starfield" aria-hidden="true" />
       <BeaconHeader siteName={c.site.name} />
 
-      {/* Pinned fener yolculugu */}
-      <section ref={wrapperRef} className="relative" style={{ height: "420vh" }} aria-label="Fener yolculugu">
+      {/* Pinned fener yolculuğu */}
+      <section ref={wrapperRef} className="relative" style={{ height: "420vh" }} aria-label="Fener yolculuğu">
         <div ref={pinRef} className="relative h-screen w-full overflow-hidden">
           <LazyBeaconScene progressRef={progressRef} />
 
-          {/* Marka cipi */}
+          {/* Marka çipi */}
           <div className="pointer-events-none absolute left-6 top-20 z-10 lg:left-10">
             <p
               className="rounded-full border px-4 py-2 text-[11px] tracking-[0.24em]"
@@ -270,7 +270,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
                 backdropFilter: "blur(6px)",
               }}
             >
-              {c.site.name.toUpperCase()} - {c.home.cardTitle?.toUpperCase() || "UMUT VE YON"}
+              {c.site.name.toUpperCase()} &middot; {c.home.cardTitle?.toUpperCase() || "UMUT VE YÖN"}
             </p>
           </div>
 
@@ -332,7 +332,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
             </div>
           ))}
 
-          {/* Faz gostergesi */}
+          {/* Faz göstergesi */}
           <div className="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-3 lg:right-14 lg:flex">
             {journeyPhases.map((_, i) => (
               <span
@@ -349,7 +349,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
             ))}
           </div>
 
-          {/* Kaydir ipucu */}
+          {/* Kaydır ipucu */}
           <div
             className={`absolute bottom-5 left-1/2 z-10 -translate-x-1/2 transition-opacity duration-300 ${
               phaseIdx === 0 ? "opacity-70" : "opacity-0"
@@ -367,24 +367,24 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
         </div>
       </section>
 
-      {/* Pusula ritueli */}
+      {/* Pusula ritüeli */}
       <CompassRitual />
 
-      {/* Fenerin uc vaadi */}
+      {/* Fenerin üç vaadi */}
       <section className="relative z-[1] py-24" style={{ background: `${BEACON.panel}66` }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p data-reveal className="text-[11px] tracking-[0.3em]" style={{ color: BEACON.glass }}>FELSEFE</p>
             <h2 data-reveal className="mt-4 text-4xl sm:text-5xl">
-              Fenerin uc{" "}
+              Fenerin üç{" "}
               <span className="italic" style={{ color: BEACON.beam }}>vaadi</span>
             </h2>
           </div>
           <div className="mx-auto mt-16 grid max-w-4xl gap-10 sm:grid-cols-3">
             {[
-              { t: "Yerinde durur", d: "Siz uzaklassaniz da, geciktirseniz de fener yer degistirmez. Terapotik iliski sabittir." },
-              { t: "Duzenli yanar", d: "Motivasyonunuz olmadigi hafta da seans oradadir. Ritim, iyilesmenin kendisidir." },
-              { t: "Yolu dayatmaz", d: "Fener rotanizi cizmez; kayaliklari gosterir. Dumen her zaman sizde kalir." },
+              { t: "Yerinde durur", d: "Siz uzaklaşsanız da, geciktirseniz de fener yer değiştirmez. Terapötik ilişki sabittir." },
+              { t: "Düzenli yanar", d: "Motivasyonunuz olmadığı hafta da seans oradadır. Ritim, iyileşmenin kendisidir." },
+              { t: "Yolu dayatmaz", d: "Fener rotanızı çizmez; kayalıkları gösterir. Dümen her zaman sizde kalır." },
             ].map((p, i) => (
               <div key={p.t} data-reveal className="text-center">
                 <span
@@ -405,16 +405,16 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
         </div>
       </section>
 
-      {/* Hizmet ozeti */}
+      {/* Hizmet özeti */}
       <section className="relative z-[1] py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <p data-reveal className="text-center text-[11px] tracking-[0.3em]" style={{ color: BEACON.glass }}>
-              CALISMA ALANLARI
+              ÇALIŞMA ALANLARI
             </p>
             <h2 data-reveal className="mt-4 text-center text-4xl sm:text-5xl">
-              Isik nerelere{" "}
-              <span className="italic" style={{ color: BEACON.beam }}>duser</span>
+              Işık nerelere{" "}
+              <span className="italic" style={{ color: BEACON.beam }}>düşer</span>
             </h2>
             <div className="mt-12">
               {c.services.map((s) => (
@@ -444,7 +444,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
         </div>
       </section>
 
-      {/* Alinti */}
+      {/* Alıntı */}
       <section className="relative z-[1] py-24" style={{ background: `${BEACON.panel}66` }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <blockquote data-reveal className="mx-auto max-w-2xl text-center">
@@ -458,7 +458,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
         </div>
       </section>
 
-      {/* Kapanis CTA */}
+      {/* Kapanış CTA */}
       <section className="relative z-[1] py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <BeaconCard
@@ -472,11 +472,12 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
               aria-hidden="true"
             />
             <h2 className="text-4xl sm:text-5xl">
-              Ilk gorusme, ilk{" "}
-              <span className="italic" style={{ color: BEACON.beam }}>cakis</span>
+              İlk görüşme, ilk{" "}
+              <span className="italic" style={{ color: BEACON.beam }}>çakış</span>
             </h2>
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed" style={{ color: BEACON.muted }}>
-              {c.contact.intro}
+              Tanışma görüşmesinde konumunuzu birlikte alırız: neredesiniz,
+              deniz nasıl, hangi kıyıya gitmek istiyorsunuz.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
@@ -500,7 +501,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
 
       <footer className="relative z-[1] border-t py-10 text-center" style={{ borderColor: `${BEACON.text}12` }}>
         <p className="text-xs tracking-[0.14em]" style={{ color: BEACON.muted }}>
-          {c.site.name.toUpperCase()} - fener denizi aydinlatmaz, yon verir
+          {c.site.name.toUpperCase()} &middot; fener denizi aydınlatmaz, yön verir
         </p>
       </footer>
     </div>

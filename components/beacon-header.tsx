@@ -6,12 +6,12 @@ import { useState } from "react";
 import { BEACON } from "./beacon-shared";
 
 const navLinks = [
-  { label: "Hakkimda", path: "/hakkimda" },
+  { label: "Hakkında", path: "/hakkimda" },
   { label: "Hizmetler", path: "/hizmetler" },
-  { label: "Yaklasim", path: "/yaklasim" },
-  { label: "Yazilar", path: "/yazilar" },
+  { label: "Yaklaşım", path: "/yaklasim" },
+  { label: "Yazılar", path: "/yazilar" },
   { label: "SSS", path: "/sss" },
-  { label: "Iletisim", path: "/iletisim" },
+  { label: "İletişim", path: "/iletisim" },
 ] as const;
 
 interface BeaconHeaderProps {
@@ -28,7 +28,7 @@ export function BeaconHeader({ siteName = "BEACON" }: BeaconHeaderProps) {
 
   return (
     <>
-      {/* Ufuk cizgisi */}
+      {/* Ufuk çizgisi */}
       <header className="fixed inset-x-0 top-0 z-40">
         <div
           className="flex items-center justify-between px-6 py-4 lg:px-10"
@@ -44,7 +44,7 @@ export function BeaconHeader({ siteName = "BEACON" }: BeaconHeaderProps) {
             {siteName.toUpperCase()}
           </Link>
           <span className="hidden text-[10px] tracking-[0.3em] sm:block" style={{ color: BEACON.muted }}>
-            41&deg;01&apos;N - 29&deg;00&apos;E
+            41&deg;01&apos;N &middot; 29&deg;00&apos;E
           </span>
         </div>
         <span
@@ -54,7 +54,7 @@ export function BeaconHeader({ siteName = "BEACON" }: BeaconHeaderProps) {
         />
       </header>
 
-      {/* Karartma */}
+      {/* Karartma overlay */}
       <div
         className={`fixed inset-0 z-30 transition-opacity duration-300 ${
           menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
@@ -64,7 +64,7 @@ export function BeaconHeader({ siteName = "BEACON" }: BeaconHeaderProps) {
         aria-hidden="true"
       />
 
-      {/* Mercek + radyal menu */}
+      {/* Mercek + radyal menü */}
       <div className="fixed bottom-7 right-7 z-40 lg:bottom-9 lg:right-9">
         {items.map((l, i) => {
           const a = ((95 + (i * 90) / (items.length - 1)) * Math.PI) / 180;
@@ -96,7 +96,7 @@ export function BeaconHeader({ siteName = "BEACON" }: BeaconHeaderProps) {
           className={`absolute bottom-20 right-0 flex w-48 flex-col gap-1.5 transition-[transform,opacity] duration-300 lg:hidden ${
             menuOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
           }`}
-          aria-label="Mobil menu"
+          aria-label="Mobil menü"
         >
           {items.map((l) => (
             <Link
@@ -125,7 +125,7 @@ export function BeaconHeader({ siteName = "BEACON" }: BeaconHeaderProps) {
           </Link>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Menuyu kapat" : "Menuyu ac"}
+            aria-label={menuOpen ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={menuOpen}
             className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 transition-transform duration-300 hover:scale-105"
             style={{

@@ -1,142 +1,179 @@
 {
   "site": {
-    "name": "Ad Soyad",
-    "title": "Unvan",
-    "email": "iletisim@siteniz.com",
-    "address": "Sehir, Turkiye",
-    "copyright": "Tum haklari saklidir."
+    "name": "Beacon",
+    "title": "Klinik Psikolog - Varoluşçu Terapist",
+    "email": "merhaba@ornekpsikolog.com",
+    "address": "İstiklal Cad. örnek No: 7, Beyoğlu - İstanbul",
+    "copyright": "Tüm hakları saklıdır."
   },
   "home": {
     "badge": "BEACON",
-    "headline": "Karanlikta",
-    "headlineAccent": "bir isik",
+    "headline": "Karanlıkta",
+    "headlineAccent": "bir ışık",
     "headlineSuffix": "her zaman yanar.",
-    "description": "Depresyon, varolussal sorgulamalar ve yasam gecislerinde sizinle birlikte yuruyorum. Yalniz degilsiniz.",
-    "cta": "Iletisime Gecin",
-    "cardTitle": "Umut ve Yon",
-    "cardSubtitle": "Varolussal Terapi",
-    "quote": "Insan, anlam arayisiyla tanimlanan bir varliktir.",
-    "quoteAuthor": "Viktor Frankl"
+    "description": "Depresyon, varoluşsal sorgulamalar ve yaşam geçişlerinde sizinle birlikte yürüyorum. Yalnız değilsiniz.",
+    "cta": "İletişime Geçin",
+    "cardTitle": "UMUT VE YÖN",
+    "cardSubtitle": "Varoluşsal Terapi",
+    "quote": "Fırtınayı dindiremem; ama ışığı açık tutabilirim.",
+    "quoteAuthor": "Bir fener bekçisinin notu"
   },
   "services": [
     {
       "title": "Depresyon Terapisi",
-      "desc": "Hafif, orta ve siddetli depresyon icin bilissel davranisci ve varolussal yaklasimlari birlestiren butuncul terapi sureci.",
+      "desc": "Duygudurum, uyku ve enerji döngülerinin birlikte ele alındığı kanıta dayalı süreç.",
       "duration": "50 dk",
-      "method": "Yuzyuze / Cevrimici"
+      "method": "Yüzyüze / Çevrimiçi"
     },
     {
-      "title": "Varolussal Terapi",
-      "desc": "Anlam arayisi, yalnizlik, ozgurluk ve sonluluk gibi varolussal temalar uzerine derinlemesine terapi calismasi.",
+      "title": "Varoluşsal Terapi",
+      "desc": "Anlam, özgürlük, yalnızlık ve ölümlülük temalarıyla derinlemesine çalışma.",
       "duration": "50 dk",
-      "method": "Yuzyuze"
+      "method": "Yüzyüze"
     },
     {
-      "title": "Yasam Gecisleri Danismanligi",
-      "desc": "Emeklilik, boslama, sehir degisikligi, kayip ve yeni baslangiclar gibi yasam donemeçlerinde destek.",
+      "title": "Yaşam Geçişleri",
+      "desc": "Taşınma, ayrılık, emeklilik, kariyer değişimi: iki kıyı arasındaki seyir.",
       "duration": "50 dk",
-      "method": "Yuzyuze / Cevrimici"
+      "method": "Yüzyüze / Çevrimiçi"
     },
     {
-      "title": "Bireysel Psikoterapi",
-      "desc": "Kaygi, ozsaygi sorunlari ve iliskisel zorluklar icin kabul ve karlilik terapisi (ACT) cercevesinde bireysel calisma.",
+      "title": "Kriz Desteği",
+      "desc": "Akut dönemde stabilizasyon, güvenlik planı ve sık aralıklı görüşme düzeni.",
       "duration": "50 dk",
-      "method": "Yuzyuze / Cevrimici"
+      "method": "Yüzyüze / Çevrimiçi"
+    },
+    {
+      "title": "Değerler Çalışması (ACT)",
+      "desc": "Kabul ve kararlılık terapisiyle pusulanızı değerlerinize göre kurmak.",
+      "duration": "50 dk",
+      "method": "Yüzyüze / Çevrimiçi"
+    },
+    {
+      "title": "Çevrimiçi Seans",
+      "desc": "Uzak kıyılar için güvenli video görüşme düzeni; tüm hizmetler çevrimiçi verilebilir.",
+      "duration": "50 dk",
+      "method": "Çevrimiçi"
     }
   ],
   "about": {
-    "title": "Hakkimda",
-    "intro": "Depresyon, varolussal sorgulamalar ve yasam gecisleri alaninda calisan bir klinik psikolog olarak, danisanlarimin anlam ve yon bulmalasiina eslik ediyorum.",
+    "title": "Hakkında",
+    "intro": "Fener bekçisinin işi denizi susturmak değildir; ışığı düzenli tutmaktır. Depresyonla, anlam kaybıyla ya da büyük bir yaşam geçişiyle boğuşurken sizden fırtınayı hemen dindirmenizi beklemem - rotanızı yeniden bulana kadar düzenli yanan bir ışık olurum.",
     "credentials": [
       {
-        "year": "—",
-        "title": "Lisans Egitimi",
-        "detail": "Psikoloji alaninda lisans derecesi"
+        "year": "-",
+        "title": "Demir alma",
+        "detail": "Psikoloji lisansı ve klinik psikoloji yüksek lisansı; duygudurum bozuklukları üzerine ilk vaka çalışmaları."
       },
       {
-        "year": "—",
-        "title": "Yuksek Lisans",
-        "detail": "Klinik psikoloji alaninda uzmanlik"
+        "year": "-",
+        "title": "Açık deniz",
+        "detail": "10 yılda 3.500'ün üzerinde seans; depresyon, motivasyon kaybı ve tükenmişlik alanlarında yoğun klinik pratik."
       },
       {
-        "year": "—",
-        "title": "Varolussal Terapi Egitimi",
-        "detail": "Varolussal-insancil terapi ileri duzey egitim programi"
+        "year": "-",
+        "title": "Derin sular",
+        "detail": "Varoluşçu terapi ve ACT formasyonu; anlam, ölümlülük ve özgürlük temalarıyla klinik çalışma."
+      },
+      {
+        "year": "-",
+        "title": "Fener nöbeti",
+        "detail": "Kriz görüşmeleri ve intiharı önleme eğitimleri; genç klinisyenlere süpervizyon."
       }
     ]
   },
   "approach": {
-    "title": "Terapi Yaklasimim",
-    "intro": "Terapide amacim, karanlik gibi hissedilen donemlerinizde size eslik etmek ve birlikte anlam bulmaktir. Her gece sabaha kavusur.",
+    "title": "Yaklaşım",
+    "intro": "Rota dört seyirde çizilir.",
     "principles": [
       {
-        "title": "Varolussal Cerceve",
-        "desc": "Insan varoluusunun temel temalarini - anlam, ozgurluk, yalnizlik ve sonluluk - terapi surecinin merkezine yerlestiriyorum."
+        "title": "Neredeyiz?",
+        "desc": "İlk görüşmelerde mevcut durum haritalanır: belirtiler, kaynaklar, denizin durumu. Yön, ancak konum bilinince çizilebilir."
       },
       {
-        "title": "Kabullenme ve Karlilik",
-        "desc": "Aci ceken dusunce ve duygularla savasmaak yerine, onlari kabul ederek degerlerinize dogru adim atmanizi destekliyorum."
+        "title": "Nereye gidiyoruz?",
+        "desc": "Hedefler birlikte belirlenir - 'mutlu olmak' değil, ölçülebilir ve size ait koordinatlar."
       },
       {
-        "title": "Iliskisel Sicaklik",
-        "desc": "Terapotik iliski, sicak ve gercek bir insan baglantiisidir. Yargisiz, koşulsuz bir kabul alani sunuyorum."
+        "title": "Düzenli ilerlemek",
+        "desc": "Haftalık seanslar fenerin düzenli çakışı gibidir: fırtınada da sakin denizde de aynı ritimde yanar."
       },
       {
-        "title": "Anlam Odakli Calisma",
-        "desc": "Hayatinizda neyin gercekten onemli oldugunu kesfetmenize ve bu degerlere uygun yasamaniza yardimci oluyorum."
+        "title": "Kendi ışığınız",
+        "desc": "Sonlandırma aşamasında kazanımlar pekiştirilir; artık kendi fenerinizi yakabildiğinizde süreç tamamlanır."
       }
     ]
   },
   "articles": [
     {
-      "title": "Depresyon ve Anlam Arayisi: Viktor Frankl'dan Dersler",
+      "title": "Depresyon tembellik değildir: enerji ekonomisi",
       "category": "Depresyon",
-      "readTime": "9 dk",
-      "date": ""
-    },
-    {
-      "title": "Varolussal Kaygi: Hayatin Buyuk Sorulariyla Yuuzlesmek",
-      "category": "Varolussal",
-      "readTime": "8 dk",
-      "date": ""
-    },
-    {
-      "title": "Yasam Gecisleri ve Psikolojik Uyum",
-      "category": "Gecisler",
       "readTime": "7 dk",
       "date": ""
     },
     {
-      "title": "Yalnizlik: Insan Varoluusunun Kacinilmaz Boyutu",
-      "category": "Yalnizlik",
-      "readTime": "10 dk",
+      "title": "Umut bir duygu değil, beceridir",
+      "category": "Umut",
+      "readTime": "6 dk",
+      "date": ""
+    },
+    {
+      "title": "İki kıyı arasında: geçiş dönemlerinin psikolojisi",
+      "category": "Geçişler",
+      "readTime": "8 dk",
+      "date": ""
+    },
+    {
+      "title": "Pusulanız hangi kuzeyi gösteriyor?",
+      "category": "Değerler",
+      "readTime": "6 dk",
+      "date": ""
+    },
+    {
+      "title": "Sabahları en zor an: davranışsal aktivasyon",
+      "category": "Depresyon",
+      "readTime": "5 dk",
+      "date": ""
+    },
+    {
+      "title": "Karanlıkta görülen ışıklar: umudun nörobilimi",
+      "category": "Umut",
+      "readTime": "9 dk",
       "date": ""
     }
   ],
   "faq": [
     {
-      "q": "Depresyon tedavi edilebilir mi?",
-      "a": "Depresyon, uygun terapi ve gerektiginde ilac destegi ile onemli olcude iyilestirilebilir. Profesyonel destek almak iyilesmenin ilk adimidir."
+      "q": "Depresyonda olduğumdan emin değilim - yine de gelebilir miyim?",
+      "a": "Evet. 'Yeterince kötü' hissetmeyi beklemek gerekmiyor; sisin yoğunlaşmasını beklemeden fener aranır. İlk değerlendirme görüşmesi tam da bunun için var."
     },
     {
-      "q": "Varolussal terapi nedir?",
-      "a": "Varolussal terapi, insan varoluusunun temel sorulariyla - anlam, ozgurluk, yalnizlik ve olum - yuzlesmeyi ve bunlarla saglikli bir iliski kurmayi hedefleyen terapi yaklasimidir."
+      "q": "İlaç kullanmam gerekecek mi?",
+      "a": "Psikolog olarak ilaç yazmam; gerektiğinde güvendiğim psikiyatristlerle iş birliği yaparım. Orta ve ağır depresyonda terapi + ilaç kombinasyonunun en güçlü sonuçları verdiğini araştırmalar gösteriyor - karar her zaman sizinle ve hekiminizle birlikte alınır."
     },
     {
-      "q": "Terapiye ne zaman baslamaliyim?",
-      "a": "Gunluk yasaminizi etkileyen surekli bir mutsuzluk, motivasyon kaybi veya anlamsizlik hissi yasiyorsaniz, profesyonel destek almak icin uygun bir zamandadir."
+      "q": "Terapi ne kadar sürer?",
+      "a": "Depresyon çalışmalarında yapılandırılmış protokoller genellikle 16-24 seans sürer; varoluşsal çalışma daha açık uçludur. İlerlemeyi düzenli aralıklarla birlikte değerlendiririz."
     },
     {
-      "q": "Seans ucreti ne kadar?",
-      "a": "Seans bilgisi icin iletisime gecin."
+      "q": "Kendime zarar verme düşüncelerim var - bu platformda yeri var mı?",
+      "a": "Bu düşünceler utanılacak değil, konuşulacak şeylerdir ve seansta güvenle ele alınır. Ancak şu anda acil bir tehlike hissediyorsanız 112'yi arayın ya da en yakın acil servise başvurun - bu site acil müdahale kanalı değildir."
+    },
+    {
+      "q": "Sadece konuşarak ne değişir ki?",
+      "a": "Terapi 'sadece konuşmak' değildir: düşünce ve davranış örüntüleriyle sistemli çalışma, ölçüm ve seans arası uygulamalar içerir. Denizi konuşmak dalgaları durdurmaz ama rotayı değiştirir."
+    },
+    {
+      "q": "Çevrimiçi görüşme yüz yüze kadar etkili mi?",
+      "a": "Depresyon ve kaygı için çevrimiçi terapinin yüz yüze ile karşılaştırılabilir sonuçlar verdiğini gösteren güçlü kanıtlar var. Önemli olan düzenli ritim - fener nerede yanarsa yansın, düzenli yanmasıdır."
     }
   ],
   "contact": {
-    "title": "Iletisim",
-    "intro": "Karanlikta bir isik ariyorsaniz, birlikte yola cikabiliriz.",
-    "formName": "Adiniz",
+    "title": "İletişim",
+    "intro": "Birkaç satır yeterli - nerede olduğunuzu bilelim, ışığı ona göre tutalım. Yazdıklarınız gizli tutulur.",
+    "formName": "Adınız",
     "formEmail": "E-posta",
-    "formMessage": "Mesajiniz",
-    "formSubmit": "Gonder"
+    "formMessage": "Konumunuz - neler oluyor?",
+    "formSubmit": "Işığı Yak"
   }
 }
