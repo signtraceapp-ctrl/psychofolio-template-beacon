@@ -1,9 +1,9 @@
 {
   "site": {
-    "name": "Uzm. Psk. Deniz Ornek",
-    "title": "Uzman Klinik Psikolog",
-    "email": "ornek@psychofolio.com",
-    "address": "Istanbul, Turkiye",
+    "name": "Ad Soyad",
+    "title": "Unvan",
+    "email": "iletisim@siteniz.com",
+    "address": "Sehir, Turkiye",
     "copyright": "Tum haklari saklidir."
   },
   "home": {
@@ -48,32 +48,88 @@
     "title": "Hakkimda",
     "intro": "Depresyon, varolussal sorgulamalar ve yasam gecisleri alaninda calisan bir klinik psikolog olarak, danisanlarimin anlam ve yon bulmalasiina eslik ediyorum.",
     "credentials": [
-      { "year": "\u2014", "title": "Lisans Egitimi", "detail": "Psikoloji alaninda lisans derecesi" },
-      { "year": "\u2014", "title": "Yuksek Lisans", "detail": "Klinik psikoloji alaninda uzmanlik" },
-      { "year": "\u2014", "title": "Varolussal Terapi Egitimi", "detail": "Varolussal-insancil terapi ileri duzey egitim programi" }
+      {
+        "year": "—",
+        "title": "Lisans Egitimi",
+        "detail": "Psikoloji alaninda lisans derecesi"
+      },
+      {
+        "year": "—",
+        "title": "Yuksek Lisans",
+        "detail": "Klinik psikoloji alaninda uzmanlik"
+      },
+      {
+        "year": "—",
+        "title": "Varolussal Terapi Egitimi",
+        "detail": "Varolussal-insancil terapi ileri duzey egitim programi"
+      }
     ]
   },
   "approach": {
     "title": "Terapi Yaklasimim",
     "intro": "Terapide amacim, karanlik gibi hissedilen donemlerinizde size eslik etmek ve birlikte anlam bulmaktir. Her gece sabaha kavusur.",
     "principles": [
-      { "title": "Varolussal Cerceve", "desc": "Insan varoluusunun temel temalarini - anlam, ozgurluk, yalnizlik ve sonluluk - terapi surecinin merkezine yerlestiriyorum." },
-      { "title": "Kabullenme ve Karlilik", "desc": "Aci ceken dusunce ve duygularla savasmaak yerine, onlari kabul ederek degerlerinize dogru adim atmanizi destekliyorum." },
-      { "title": "Iliskisel Sicaklik", "desc": "Terapotik iliski, sicak ve gercek bir insan baglantiisidir. Yargisiz, koşulsuz bir kabul alani sunuyorum." },
-      { "title": "Anlam Odakli Calisma", "desc": "Hayatinizda neyin gercekten onemli oldugunu kesfetmenize ve bu degerlere uygun yasamaniza yardimci oluyorum." }
+      {
+        "title": "Varolussal Cerceve",
+        "desc": "Insan varoluusunun temel temalarini - anlam, ozgurluk, yalnizlik ve sonluluk - terapi surecinin merkezine yerlestiriyorum."
+      },
+      {
+        "title": "Kabullenme ve Karlilik",
+        "desc": "Aci ceken dusunce ve duygularla savasmaak yerine, onlari kabul ederek degerlerinize dogru adim atmanizi destekliyorum."
+      },
+      {
+        "title": "Iliskisel Sicaklik",
+        "desc": "Terapotik iliski, sicak ve gercek bir insan baglantiisidir. Yargisiz, koşulsuz bir kabul alani sunuyorum."
+      },
+      {
+        "title": "Anlam Odakli Calisma",
+        "desc": "Hayatinizda neyin gercekten onemli oldugunu kesfetmenize ve bu degerlere uygun yasamaniza yardimci oluyorum."
+      }
     ]
   },
   "articles": [
-    { "title": "Depresyon ve Anlam Arayisi: Viktor Frankl'dan Dersler", "category": "Depresyon", "readTime": "9 dk", "date": "Ornek tarih" },
-    { "title": "Varolussal Kaygi: Hayatin Buyuk Sorulariyla Yuuzlesmek", "category": "Varolussal", "readTime": "8 dk", "date": "Ornek tarih" },
-    { "title": "Yasam Gecisleri ve Psikolojik Uyum", "category": "Gecisler", "readTime": "7 dk", "date": "Ornek tarih" },
-    { "title": "Yalnizlik: Insan Varoluusunun Kacinilmaz Boyutu", "category": "Yalnizlik", "readTime": "10 dk", "date": "Ornek tarih" }
+    {
+      "title": "Depresyon ve Anlam Arayisi: Viktor Frankl'dan Dersler",
+      "category": "Depresyon",
+      "readTime": "9 dk",
+      "date": ""
+    },
+    {
+      "title": "Varolussal Kaygi: Hayatin Buyuk Sorulariyla Yuuzlesmek",
+      "category": "Varolussal",
+      "readTime": "8 dk",
+      "date": ""
+    },
+    {
+      "title": "Yasam Gecisleri ve Psikolojik Uyum",
+      "category": "Gecisler",
+      "readTime": "7 dk",
+      "date": ""
+    },
+    {
+      "title": "Yalnizlik: Insan Varoluusunun Kacinilmaz Boyutu",
+      "category": "Yalnizlik",
+      "readTime": "10 dk",
+      "date": ""
+    }
   ],
   "faq": [
-    { "q": "Depresyon tedavi edilebilir mi?", "a": "Depresyon, uygun terapi ve gerektiginde ilac destegi ile onemli olcude iyilestirilebilir. Profesyonel destek almak iyilesmenin ilk adimidir." },
-    { "q": "Varolussal terapi nedir?", "a": "Varolussal terapi, insan varoluusunun temel sorulariyla - anlam, ozgurluk, yalnizlik ve olum - yuzlesmeyi ve bunlarla saglikli bir iliski kurmayi hedefleyen terapi yaklasimidir." },
-    { "q": "Terapiye ne zaman baslamaliyim?", "a": "Gunluk yasaminizi etkileyen surekli bir mutsuzluk, motivasyon kaybi veya anlamsizlik hissi yasiyorsaniz, profesyonel destek almak icin uygun bir zamandadir." },
-    { "q": "Seans ucreti ne kadar?", "a": "Seans bilgisi icin iletisime gecin." }
+    {
+      "q": "Depresyon tedavi edilebilir mi?",
+      "a": "Depresyon, uygun terapi ve gerektiginde ilac destegi ile onemli olcude iyilestirilebilir. Profesyonel destek almak iyilesmenin ilk adimidir."
+    },
+    {
+      "q": "Varolussal terapi nedir?",
+      "a": "Varolussal terapi, insan varoluusunun temel sorulariyla - anlam, ozgurluk, yalnizlik ve olum - yuzlesmeyi ve bunlarla saglikli bir iliski kurmayi hedefleyen terapi yaklasimidir."
+    },
+    {
+      "q": "Terapiye ne zaman baslamaliyim?",
+      "a": "Gunluk yasaminizi etkileyen surekli bir mutsuzluk, motivasyon kaybi veya anlamsizlik hissi yasiyorsaniz, profesyonel destek almak icin uygun bir zamandadir."
+    },
+    {
+      "q": "Seans ucreti ne kadar?",
+      "a": "Seans bilgisi icin iletisime gecin."
+    }
   ],
   "contact": {
     "title": "Iletisim",
