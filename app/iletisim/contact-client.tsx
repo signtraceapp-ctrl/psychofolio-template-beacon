@@ -20,6 +20,9 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent("İletişim Formu");
+    const body = encodeURIComponent(`Ad: ${name}\nE-posta: ${email}\n\n${note}`);
+    window.location.href = `mailto:${c.site.email}?subject=${subject}&body=${body}`;
     setSent(true);
     requestAnimationFrame(() => {
       if (lightRef.current) {
