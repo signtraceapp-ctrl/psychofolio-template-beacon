@@ -138,8 +138,9 @@ export function ContactClient({ content: c }: { content: SiteContent }) {
             {/* Bilgiler */}
             <div data-reveal className="space-y-8 lg:pt-4">
               {[
-                { k: "SEANS", v: "Hafta içi 10:00-19:00 \u00B7 Cmt 10:00-14:00" },
+                { k: "SEANS", v: c.site.hours || "Hafta içi 10:00-19:00 \u00B7 Cmt 10:00-14:00" },
                 { k: "KONUM", v: c.site.address },
+                ...(c.site.phone ? [{ k: "TELEFON", v: c.site.phone }] : []),
                 { k: "E-POSTA", v: c.site.email },
               ].map((row) => (
                 <div key={row.k} className="border-b pb-5" style={{ borderColor: `${BEACON.text}12` }}>
