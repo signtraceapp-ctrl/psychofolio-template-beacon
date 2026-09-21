@@ -10,7 +10,9 @@ const siteContentInputSchema = z.object({
       name: metin,
       title: metin,
       email: metin,
+      phone: metin,
       address: metin,
+      hours: metin,
       copyright: metin,
     })
     .partial()
@@ -85,7 +87,7 @@ const siteContentInputSchema = z.object({
 });
 
 export interface SiteContent {
-  site: { name: string; title: string; email: string; address: string; copyright: string };
+  site: { name: string; title: string; email: string; phone?: string; address: string; hours?: string; copyright: string };
   home: { badge: string; headline: string; headlineAccent: string; headlineSuffix: string; description: string; cta: string; cardTitle: string; cardSubtitle: string; quote: string; quoteAuthor: string };
   services: { title: string; desc: string; duration: string; method: string }[];
   about: { title: string; intro: string; credentials: { year: string; title: string; detail: string }[] };
