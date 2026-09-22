@@ -316,7 +316,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
                         className="rounded-full px-6 py-3 text-xs font-bold tracking-[0.2em] transition-transform hover:scale-[1.02]"
                         style={{ background: BEACON.beam, color: BEACON.night }}
                       >
-                        RANDEVU AL
+                        {(c.home.cta || "RANDEVU AL").toUpperCase()}
                       </Link>
                       <Link
                         href="/yaklasim"
@@ -485,7 +485,7 @@ export function HomeClient({ content: c }: { content: SiteContent }) {
                 className="rounded-full px-7 py-3.5 text-xs font-bold tracking-[0.2em] transition-transform hover:scale-[1.02]"
                 style={{ background: BEACON.beam, color: BEACON.night }}
               >
-                RANDEVU AL
+                {(c.home.cta || "RANDEVU AL").toUpperCase()}
               </Link>
               <Link
                 href="/sss"
